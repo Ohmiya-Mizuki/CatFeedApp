@@ -44,6 +44,7 @@ class CatController extends Controller
             return redirect()->route('cat.index');
         } else {
             $cat = new Cat;
+            $cat->user_id = Auth::id();
             $cat->name = $request->name;
             $cat->save();
             return redirect()->route('cat.index');
