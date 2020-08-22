@@ -41,11 +41,13 @@
                             </thead>
                             <tbody>
                                 @if(isset($cats))
-                                    @foreach ($cats as $cat)  // テーブル作成
-                                        <tr>
-                                            <td>{{ $cat->id }}</td>
-                                            <td>{{ $cat->name }}</td>
-                                        </tr>
+                                    @foreach ($cats as $cat)
+                                        @if($cat->user_id == Auth::id())
+                                            <tr>
+                                                <td>{{ $cat->id }}</td>
+                                                <td><a href="/cat/{{ $cat->id }}">{{ $cat->name }}</a></td>
+                                            </tr>
+                                        @endif
                                     @endforeach 
                                 @endif
                             </tbody>
