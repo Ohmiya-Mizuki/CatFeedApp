@@ -26,7 +26,7 @@
                         </ul>
                         </div>
                     @endif
-                    <form action="/admin/{{ $admins->id }}" method="POST">
+                    <form action="/cat/{{ $cats->id }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="form-group row">
