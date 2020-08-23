@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cat;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class CatController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
-      }        
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +20,8 @@ class CatController extends Controller
      */
     public function index()
     {
-        $cats = \App\Cat::all();
+        $user = Auth::user();
+        $cats = $user->cats;
         return view('cat/index', compact('cats'));
     }
 
@@ -40,15 +43,15 @@ class CatController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->action === 'back') {
-            return redirect()->route('cat.index');
-        } else {
-            $cat = new Cat;
-            $cat->user_id = Auth::id();
-            $cat->name = $request->name;
-            $cat->save();
+        if ($request->action === 'back') {
             return redirect()->route('cat.index');
         }
+        $form = $request->all();
+        $cat = new Cat;
+        $cat->user_id = Auth::id();
+        $cat->fill($form);
+        $cat->save();
+        return redirect()->route('cat.index');
     }
 
     /**
@@ -84,14 +87,13 @@ class CatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->action === 'back') {
-            return redirect()->route('cat.index');
-        } else {
-            $cat = \App\Cat::find($id);
-            $cat->name = $request->name;
-            $cat->save();
-            return redirect()->route('cat.index');
-        }
+        if ($request->action === 'back') return redirect()->route('cat.index');
+        
+        $cat = \App\Cat::find($id);
+        $cat->name = $request->name;
+        $cat->save();
+        return redirect()->route('cat.index');
+        
     }
 
     /**

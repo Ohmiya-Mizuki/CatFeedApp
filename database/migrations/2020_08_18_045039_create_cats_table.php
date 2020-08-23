@@ -17,6 +17,9 @@ class CreateCatsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('name');
+            $table->integer('gender');
+            $table->time('food_time');
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }
