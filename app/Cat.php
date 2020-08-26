@@ -15,13 +15,21 @@ class Cat extends Model
 
     public function getGenderStrAttribute(): string
     {
-        if ($this->gender == 1) return "オス";
-        if ($this->gender == 2) return "メス";
-        return "その他";
+        $genderList = [
+            1 => 'オス',
+            2 => 'メス',
+            3 => 'その他'
+        ];
+        return $genderList[$this->gender];
     }
 
     public function users()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function feed_records()
+    {
+        return $this->hasMany(FeedRecord::class);
     }
 }

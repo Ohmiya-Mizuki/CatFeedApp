@@ -20,6 +20,7 @@
                             {{ $cats->name }}
                         </div>
                     </div>
+                    <p class="text-center"><a href="{{ route('feed.index') }}">餌の登録へ</a></p>
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="button" class="btn btn-primary" onclick="location.href='{{ route('cat.edit', $cats->id) }}'">
