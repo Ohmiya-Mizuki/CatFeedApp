@@ -51,6 +51,7 @@ class FeedRecordController extends Controller
         $feedRecord->cat_id = $request->cat_id;
         $feedRecord->fill($form);
         $feedRecord->save();
+        
         return redirect()->route('cat.show', $request->cat_id);
     }
 
