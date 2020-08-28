@@ -75,7 +75,7 @@ class CatController extends Controller
     public function edit($id)
     {
         $cats = \App\Cat::find($id);
-        return view('cat.edit', compact('cats'));
+        return view('cat.edit', ['cats' => $cats]);
     }
 
     /**

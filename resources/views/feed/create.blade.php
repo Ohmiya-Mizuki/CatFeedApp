@@ -45,6 +45,7 @@
                                 </button>
                             </div>
                         </div>
+                        <input type="hidden" class="form-control" name="cat_id" value="{{ $cat_id }}">
                     </form>
                 </div>
             </div>

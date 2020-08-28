@@ -17,10 +17,9 @@ class Cat extends Model
     {
         $genderList = [
             1 => 'オス',
-            2 => 'メス',
-            3 => 'その他'
+            2 => 'メス'
         ];
-        return $genderList[$this->gender];
+        return (isset($genderList[$this->gender])) ? $genderList[$this->gender] : 'その他';
     }
 
     public function users()

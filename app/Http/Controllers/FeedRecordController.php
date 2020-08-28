@@ -30,9 +30,9 @@ class FeedRecordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($cat_id)
     {
-        return view('feed.create');
+        return view('feed.create', compact('cat_id'));
     }
 
     /**
@@ -48,10 +48,10 @@ class FeedRecordController extends Controller
         }
         $form = $request->all();
         $feedRecord = new FeedRecord;
-        //$feedRecord->cat_id = $cat->id();
+        $feedRecord->cat_id = $request->cat_id;
         $feedRecord->fill($form);
         $feedRecord->save();
-        return redirect()->route('feed.index');
+        return redirect()->route('cat.show', $request->cat_id);
     }
 
     /**
