@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cat;
 use Auth;
+use App\FeedRecord;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class CatController extends Controller
@@ -62,8 +63,9 @@ class CatController extends Controller
      */
     public function show($id)
     {
-        $cats = \App\Cat::find($id);
-        return view('cat.show', compact('cats'));
+        $cat = \App\Cat::find($id);
+        $feedRecords = $cat->feed_records;;
+        return view('cat.show', ['cat' => $cat, 'feedRecords' => $feedRecords]);
     }
 
     /**
