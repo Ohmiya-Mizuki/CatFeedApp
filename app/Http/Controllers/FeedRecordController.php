@@ -21,8 +21,8 @@ class FeedRecordController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $feeds = $user->feeds;
-        return view('feed/index', compact('feeds'));
+        $feedRecords = $user->feedRecords;
+        return view('feedRecoerd/index', compact('feedRecords'));
     }
 
     /**
@@ -32,7 +32,7 @@ class FeedRecordController extends Controller
      */
     public function create($cat_id)
     {
-        return view('feed.create', compact('cat_id'));
+        return view('feedRecord.create', compact('cat_id'));
     }
 
     /**
@@ -44,7 +44,7 @@ class FeedRecordController extends Controller
     public function store(Request $request)
     {
         if ($request->action === 'back') {
-            return redirect()->route('feed.index');
+            return redirect()->route('cat.show', $request->cat_id);
         }
         $form = $request->all();
         $feedRecord = new FeedRecord;
@@ -64,7 +64,7 @@ class FeedRecordController extends Controller
     public function show($id)
     {
         $feedRecords = \App\FeedRecord::find($id);
-        return view('feed.show', compact('feeds'));
+        return view('feedRecored.show', compact('feedRecords'));
     }
 
     /**

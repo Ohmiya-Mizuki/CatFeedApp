@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('cat', 'CatController');
 //Route::resource('feed', 'FeedRecordController');
-Route::group(["prefix" => "feed"], function () {
+Route::group(["prefix" => "feedRecord"], function () {
     Route::get('/{cat_id}/create', 'FeedRecordController@create')->name('feed.create');
     Route::post('/create', 'FeedRecordController@store')->name('feed.store');
     
