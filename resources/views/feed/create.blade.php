@@ -40,9 +40,9 @@
                                 <button type="submit" class="btn btn-primary" name='action' value='add'>
                                     {{ __('追加') }}
                                 </button>
-                                <button type="submit" class="btn btn-primary" name='action' value='back'>
+                            <a class="btn" role="button" href="{{route('cat.show', $cat_id)}}">
                                     {{ __('戻る') }}
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <input type="hidden" class="form-control" name="cat_id" value="{{ $cat_id }}">

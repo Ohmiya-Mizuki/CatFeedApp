@@ -45,9 +45,10 @@
                                     {{ __('削除') }}
                                 </button>
                             </form>
-                            <button type="button" class="btn btn-primary" onclick="history.back()">
+                            <a class="btn" href="{{ route('cat.index') }}
+                            ">
                                 {{ __('戻る') }}
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
