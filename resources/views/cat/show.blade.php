@@ -45,7 +45,7 @@
                                     {{ __('削除') }}
                                 </button>
                             </form>
-                            <a class="btn" href="{{ route('cat.index') }}
+                            <a class="btn" role="button" href="{{ route('cat.index') }}
                             ">
                                 {{ __('戻る') }}
                             </a>
