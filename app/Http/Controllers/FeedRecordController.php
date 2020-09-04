@@ -43,9 +43,6 @@ class FeedRecordController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->action === 'back') {
-            return redirect()->route('cat.show', $request->cat_id);
-        }
         $form = $request->all();
         $feedRecord = new FeedRecord;
         $feedRecord->cat_id = $request->cat_id;
