@@ -35,16 +35,13 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>{{__('ID')}}</th>
                                     <th>{{__('name')}}</th>
                                     <th>{{__('gender')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if(isset($cats))
-                                    @foreach ($cats as $index => $cat)
-                                        <tr>
-                                            <td>{{ $index + 1 }}</td>
+                                    @foreach ($cats as $cat)
                                             <td><a href="/cat/{{ $cat->id }}">{{ $cat->name }}</a></td>
                                             <td>{{ $cat->gender_str }}</td>
                                         </tr>
