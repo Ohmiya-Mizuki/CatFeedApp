@@ -28,5 +28,9 @@ Route::group(["prefix" => "feedRecord"], function () {
     
 }); 
 
-
+// 送信メール本文のプレビュー
+Route::get('sample/mailable/preview', function () {
+    return new App\Mail\SampleNotification();
+  });
+  Route::get('sample/mailable/send', 'SampleController@SampleNotification');
 
