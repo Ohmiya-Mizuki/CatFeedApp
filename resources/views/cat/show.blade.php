@@ -15,6 +15,7 @@
                         </div>
                     </div>
                     <p class="text-center"><a href="{{ route('feed.create', ['cat_id' => $cat->id]) }}">餌の登録へ</a></p>
+                    <p class="text-center"><a href="{{ route('sample.mailable.send') }}">メールを送る</a></p>
                     <div class="table-resopnsive">
                         <table class="table table-striped">
                             <thead>

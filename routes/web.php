@@ -32,5 +32,5 @@ Route::group(["prefix" => "feedRecord"], function () {
 Route::get('sample/mailable/preview', function () {
     return new App\Mail\SampleNotification();
   });
-  Route::get('sample/mailable/send', 'SampleController@SampleNotification');
+  Route::get('sample/mailable/send', 'SampleController@SampleNotification')->name('sample.mailable.send');
 
