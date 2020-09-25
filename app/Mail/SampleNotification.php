@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+
 class SampleNotification extends Mailable
 {
     use Queueable, SerializesModels;
@@ -19,9 +20,9 @@ class SampleNotification extends Mailable
      *
      * @return void
      */
-    public function __construct($name='テスト', $text='テストです。')
+    public function __construct($name, $text)
     {
-        $this->title = sprintf('%sさん、ありがとうございます。', $name);
+        $this->title = sprintf('%sさん、餌をあげてください', $name);
         $this->text = $text;
     }
 

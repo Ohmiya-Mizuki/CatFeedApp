@@ -28,10 +28,10 @@
 </style>
 <body>
 <h1>
-  Sample Notification!
+  餌の時間です。
 </h1>
 <p>
-  A sample notification has been sent.
+  餌をあげてください。
 </p>
 <p>
   {{$text}}
