@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\SampleNotification;
 use App\User;
 use App\Cat;
+use Carbon\Carbon;
 
 class MailNotification extends Command
 {
@@ -41,26 +42,19 @@ class MailNotification extends Command
      */
     public function handle()
     {
-        $cats_infos = Cat::all();
+        $cats = Cat::all();
 
-        foreach ($cats_infos as $cats_info) {
-            $food_time = $cats_info['food_time'];
-            $now = time();
+        foreach ($cats as $cat) {
+            $now = new Carbon();
 
-            //if ($food_time !== $now) continue;
+            //if ($cat->food_time !== $now) continue;
+            $user = $cat->user;
+            $text = $cat->name . 'の餌の時間です。';
 
-            $user_id = $cats_info['user_id'];
-            $user_info = User::find($user_id);
-            $to = $user_info->email;
-
-            $user_name = $user_info->name;
-            $cat_name = $cats_info['name'];
-            $text = $cat_name . 'の餌の時間です。';
-            Mail::to($to)->send(new SampleNotification($user_name, $text));
-            echo "メールを送信しました\n";
-            //return 0;
-
+            Mail::to($user->email)->send(new SampleNotification($user->name, $text));
+            echo "メールを送信しました" . PHP_EOL;    
         }
 
+        return 0;
     }
 }
