@@ -52,7 +52,7 @@ class MailNotification extends Command
             $text = $cat->name . 'の餌の時間です。';
 
             Mail::to($user->email)->send(new SampleNotification($user->name, $text));
-            echo "メールを送信しました\n";    
+            echo "メールを送信しました" . PHP_EOL;    
         }
 
         return 0;
