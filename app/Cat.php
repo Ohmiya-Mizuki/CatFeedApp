@@ -22,7 +22,7 @@ class Cat extends Model
         return (isset($genderList[$this->gender])) ? $genderList[$this->gender] : 'その他';
     }
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
