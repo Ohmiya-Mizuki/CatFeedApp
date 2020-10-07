@@ -40,7 +40,7 @@
                                 <button type="submit" class="btn btn-primary" name='action' value='add'>
                                     {{ __('追加') }}
                                 </button>
-                                <button type="submit" class="btn btn-primary" name='action' value='back'>
+                                <button type="button" class="btn btn-primary" onclick="location.href='{{ route('cat.show', $cat_id) }}'">
                                     {{ __('戻る') }}
                                 </button>
                             </div>

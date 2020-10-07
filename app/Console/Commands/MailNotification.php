@@ -47,7 +47,8 @@ class MailNotification extends Command
         foreach ($cats as $cat) {
             $now = new Carbon();
 
-            //if ($cat->food_time !== $now) continue;
+            if ($cat->food_time !== $now) continue;
+            
             $user = $cat->user;
             $text = $cat->name . 'の餌の時間です。';
 
