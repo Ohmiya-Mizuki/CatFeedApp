@@ -43,12 +43,12 @@ class MailNotification extends Command
     public function handle()
     {
         $cats = Cat::all();
+        $now = new Carbon();
 
         foreach ($cats as $cat) {
-            $now = new Carbon();
 
-            if ($cat->food_time !== $now) continue;
-            
+            if ($cat->food_time->format('H') !== $now->format('H')) continue;
+
             $user = $cat->user;
             $text = $cat->name . 'の餌の時間です。';
 

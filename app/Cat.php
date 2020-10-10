@@ -8,6 +8,10 @@ class Cat extends Model
 {
     protected $guarded = ["id", "token"];
 
+    protected $dates = [
+        'food_time'
+    ];
+
     public function getData()
     {
         return '名前：' . $this->name;
